@@ -1,4 +1,4 @@
-package com.sunplus;
+package com.myocr;
 
 import java.io.File;
 import java.util.ArrayList;
