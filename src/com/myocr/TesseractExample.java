@@ -19,7 +19,7 @@ public class TesseractExample {
 	public static void main(String[] args) {
 		String inputImage = "images/300.jpg";
 		String outputFile = "output/log.out";
-		String reImage = "images/1833.jpg";
+		String reImage = "output/myNewFile.tif";
 		TesseractExample te = new TesseractExample();
 		/*try {
 			te.imageResize(inputImage, reImage);
@@ -33,7 +33,7 @@ public class TesseractExample {
 
 		try {
 			instance.setLanguage("eng");
-			instance.setTessVariable("tessedit_char_whitelist", "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ:-/");
+			instance.setTessVariable("tessedit_char_whitelist", "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ:-/<>");
 			List<ITesseract.RenderedFormat> lst = new ArrayList<ITesseract.RenderedFormat>();
 			lst.add(ITesseract.RenderedFormat.TEXT);
 			instance.createDocuments(reImage, outputFile, lst);
@@ -45,6 +45,12 @@ public class TesseractExample {
 		}
 
 	}
+	
+	public void cleanImage() {
+		/** Typical scaling implementation using JMagick **/
+		
+	}
+	
 
 	private void imageResize(String highImage, String lowImage)
 			throws IOException, InterruptedException, IM4JavaException {

@@ -14,5 +14,7 @@
 	<classpathentry kind="lib" path="lib/tess4j.jar"/>
 	<classpathentry kind="lib" path="lib/xmlgraphics-commons-1.5.jar"/>
 	<classpathentry kind="lib" path="lib/im4java-1.4.0-1.5.jar"/>
+	<classpathentry kind="lib" path="lib/opencv-300.jar"/>
+	<classpathentry kind="lib" path="ClearImageJ.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
