@@ -6,16 +6,28 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.photo.Photo;
 
 public class DeNoiseImage {
-	public static void main(String[] args) {
+	
+	/**
+	 * denoise image of imput: inputImage and output: outputImage
+	 * 
+	 */
+	public DeNoiseImage(String inputImage, String outputImage) {
+
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-		DeNoiseImage i = new DeNoiseImage();
-		i.denoise("images/18321.jpg", "output/outimg.jpg");
-		
+		denoise(inputImage, outputImage);
 	}
-	
-	
-	public void denoise(String inputImage,String outputImage) {
-		//String path = "images/18321.jpg";
+
+	/**
+	 * denoise image of same input image
+	 * 
+	 */
+	public DeNoiseImage(String inputImage) {
+
+		this(inputImage, inputImage);
+	}
+
+	private void denoise(String inputImage, String outputImage) {
+		
 		Mat image = Imgcodecs.imread(inputImage);
 		Mat out = new Mat();
 
@@ -23,7 +35,7 @@ public class DeNoiseImage {
 			System.out.println("Image not found !!");
 			return;
 		}
-		Photo.fastNlMeansDenoising(image, out, 50, 7, 21);
+		Photo.fastNlMeansDenoising(image, out, 10, 7, 21);
 		Imgcodecs.imwrite(outputImage, out);
 		if (out.empty()) {
 			System.out.println("Image not found !!");

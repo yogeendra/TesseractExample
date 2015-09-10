@@ -25,6 +25,7 @@ public class FilterContent {
 
 			System.out.print(match);
 		}
+		input.close();
 	}
 
 	public boolean isThreeLetters(String s) {
